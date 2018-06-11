@@ -69,7 +69,7 @@ public:
             result = other.result;
     }
 
-    Graph operator=(Graph const & other)
+    Graph & operator=(Graph const & other)
     {
         if (this != &other)
         {
