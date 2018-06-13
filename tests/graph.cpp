@@ -9,7 +9,7 @@ TEST_CASE("num0")
     graph.bfs(0);
     ostringstream stream;
     graph.print_result(stream);
-    string out = "->0->1->2->3->4->5->6";
+    string out = "->0->1->2->6->3->5->4";
     REQUIRE(out == stream.str());
 }
 
@@ -40,7 +40,7 @@ TEST_CASE("constructor_1")
     Graph graph(graph_1);
     ostringstream stream;
     graph.print_result(stream);
-    string out = "->0->1->2->3->4->5->6";
+    string out = "->0->1->2->6->3->5->4";
     REQUIRE(out == stream.str());
 }
 
@@ -52,7 +52,7 @@ TEST_CASE("construktor_2")
     graph = graph_1;
     ostringstream stream;
     graph.print_result(stream);
-    string out = "->0->1->2->3->4->5->6";
+    string out = "->0->1->2->6->3->5->4";
     REQUIRE(out == stream.str());
 }
 
