@@ -81,7 +81,7 @@ public:
         return (*this);
     }
 
-    void dfs(unsigned index)
+    void bfs(unsigned index)
     {
         vector<bool> run_;
         result.clear();
@@ -89,19 +89,29 @@ public:
         {
             run_.push_back(false);
         }
-        dfs_help(index, run_);
+        bfs_help(index, run_);
     }
 
-    void dfs_help(unsigned index, vector<bool>& run_)
-    {
-        run_[index] = true;
-        result.push_back(index);
-        for (const auto& i : graph[index])
-        {
-            if (!(run_[i]))
-                dfs_help(i, run_);
-        }
-    }
+    void bfs_help(unsigned index, vector<bool>& run_)
+	{
+		int n = 0;
+	
+		run_[index] = true;
+		result.push_back(index);
+		   while (n < N) {
+			   n++;
+			   for (const auto& i : graph[index])
+			   {
+				   if (!(run_[i]))
+				   {
+					   result.push_back(i);
+					   run_[i] = true;
+				   }
+				   
+			   }
+			   index = result[n];
+		   }
+	}
 
     void print_result(ostream& stream) const
     {
