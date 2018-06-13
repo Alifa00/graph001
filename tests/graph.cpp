@@ -19,7 +19,7 @@ TEST_CASE("num2")
     graph.bfs(2);
     ostringstream stream;
     graph.print_result(stream);
-    string out = "->2->0->1->3->4->5->6";
+    string out = "->2->0->1->6->3->5->4";
     REQUIRE(out == stream.str());
 }
 
@@ -29,7 +29,7 @@ TEST_CASE("num4")
     graph.bfs(4);
     ostringstream stream;
     graph.print_result(stream);
-    string out = "->4->3->1->0->2->6->5";
+    string out = "->4->3->5->1->6->0->2";
     REQUIRE(out == stream.str());
 }
 
