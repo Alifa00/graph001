@@ -6,7 +6,7 @@
 TEST_CASE("num0")
 {
     Graph graph({ { 1, 2, 6 }, { 0, 2, 3 }, { 0, 1 }, { 1, 4 }, { 3, 5 }, { 4, 6 }, { 0, 5 } });
-    graph.dfs(0);
+    graph.bfs(0);
     ostringstream stream;
     graph.print_result(stream);
     string out = "->0->1->2->3->4->5->6";
@@ -16,7 +16,7 @@ TEST_CASE("num0")
 TEST_CASE("num2")
 {
     Graph graph({ { 1, 2, 6 }, { 0, 2, 3 }, { 0, 1 }, { 1, 4 }, { 3, 5 }, { 4, 6 }, { 0, 5 } });
-    graph.dfs(2);
+    graph.bfs(2);
     ostringstream stream;
     graph.print_result(stream);
     string out = "->2->0->1->3->4->5->6";
@@ -26,7 +26,7 @@ TEST_CASE("num2")
 TEST_CASE("num4")
 {
     Graph graph({ { 1, 2, 6 }, { 0, 2, 3 }, { 0, 1 }, { 1, 4 }, { 3, 5 }, { 4, 6 }, { 0, 5 } });
-    graph.dfs(4);
+    graph.bfs(4);
     ostringstream stream;
     graph.print_result(stream);
     string out = "->4->3->1->0->2->6->5";
@@ -36,7 +36,7 @@ TEST_CASE("num4")
 TEST_CASE("constructor_1")
 {
     Graph graph_1({ { 1, 2, 6 }, { 0, 2, 3 }, { 0, 1 }, { 1, 4 }, { 3, 5 }, { 4, 6 }, { 0, 5 } });
-    graph_1.dfs(0);
+    graph_1.bfs(0);
     Graph graph(graph_1);
     ostringstream stream;
     graph.print_result(stream);
@@ -47,7 +47,7 @@ TEST_CASE("constructor_1")
 TEST_CASE("construktor_2")
 {
     Graph graph_1({ { 1, 2, 6 }, { 0, 2, 3 }, { 0, 1 }, { 1, 4 }, { 3, 5 }, { 4, 6 }, { 0, 5 } });
-    graph_1.dfs(0);
+    graph_1.bfs(0);
     Graph graph;
     graph = graph_1;
     ostringstream stream;
