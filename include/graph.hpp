@@ -130,6 +130,7 @@ public:
 			      }	
 			      run_[index] = true;
 		              result.push_back(index)
+			      n++;
 			   }
 		   }
 	}
