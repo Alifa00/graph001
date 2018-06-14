@@ -127,7 +127,9 @@ public:
 		              index=next_node(run_);
 			      if(index==-1){
 			           break;
-			      }	      
+			      }	
+			      run_[index] = true;
+		              result.push_back(index)
 			   }
 		   }
 	}
