@@ -12,7 +12,7 @@ private:
     vector<vector<unsigned> > graph;
     vector<unsigned> result;
     unsigned N;
-
+    
 public:
     Graph()
     {
@@ -91,7 +91,16 @@ public:
         }
         bfs_help(index, run_);
     }
-
+    int next_node(vector<bool>& run_){
+	     int result=0;
+	     for (const auto& i : run_){
+		     if(!i){
+			 return result;    
+		     }
+		     result++;
+	     }
+	    return -1;
+    }
     void bfs_help(unsigned index, vector<bool>& run_)
 	{
 		int n = 0;
@@ -100,16 +109,26 @@ public:
 		result.push_back(index);
 		   while (n < N) {
 			   n++;
+			   bool hasnext=false;
 			   for (const auto& i : graph[index])
 			   {
 				   if (!(run_[i]))
 				   {
 					   result.push_back(i);
 					   run_[i] = true;
+					   hasnext=true;
 				   }
 				   
 			   }
-			   index = result[n];
+			   if(hasnext){
+			      index = result[n];
+			   }
+			   if(!hasnext){
+		              index=next_node(run_);
+			      if(index==-1){
+			           break;
+			      }	      
+			   }
 		   }
 	}
 
