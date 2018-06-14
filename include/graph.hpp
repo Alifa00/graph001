@@ -108,29 +108,29 @@ public:
 		run_[index] = true;
 		result.push_back(index);
 		   while (n < N) {
-			   n++;
-			   bool hasnext=false;
+			   
 			   for (const auto& i : graph[index])
 			   {
 				   if (!(run_[i]))
 				   {
 					   result.push_back(i);
 					   run_[i] = true;
-					   hasnext=true;
+					  
 				   }
 				   
 			   }
-			   if(hasnext){
+			   n++;
+			   if(result.size()-1>=n){
 			      index = result[n];
 			   }
-			   if(!hasnext){
+			   if(result.size()-1<n){
 		              index=next_node(run_);
 			      if(index==-1){
 			           break;
 			      }	
 			      run_[index] = true;
 		              result.push_back(index);
-			      n++;
+			     
 			   }
 		   }
 	}
